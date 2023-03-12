@@ -10,10 +10,7 @@ export class App extends Component {
   }; 
 
   leaveFeedback = ({ target: { name } }) => {
-  console.log('1');
-    {
       this.setState(prevState => ({ [name]: prevState[name] + 1 }));
-    }
   };
 
   countTotalFeedback = () => { return ((this.state.good + this.state.neutral + this.state.bad)) };
