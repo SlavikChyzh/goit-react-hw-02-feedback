@@ -38,10 +38,11 @@ export class App extends Component {
               onLeaveFeedback={this.leaveFeedback}
             />}
         />
-        {total === 0 ? <Notification message="There is no feedback" /> :
           <Section
             title="Statistic"
-            children={
+            children=
+            {total === 0 ?
+              <Notification message="There is no feedback" /> :
               <Statistics
                 good={this.state.good}
                 neutral={this.state.neutral}
@@ -49,7 +50,7 @@ export class App extends Component {
                 total={this.countTotalFeedback()}
                 positivePercentage={this.countPositiveFeedbackPercentage()}
               />}
-          />}
+          />
       </>)
   };
 };
