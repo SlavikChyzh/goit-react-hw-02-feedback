@@ -1,18 +1,20 @@
-import { nanoid } from "nanoid"
+import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
+import { OptionsButton } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ options, onLeaveFeedback }) =>
-( 
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <>
-    {options.map((option) => {
+    {options.map(option => {
       return (
-        <button
-          name={option}
-          onClick={onLeaveFeedback}
-          key={nanoid()}
-          >{option}
-        </button>  
-      )
-    })
-    }  
+        <OptionsButton name={option} onClick={onLeaveFeedback} key={nanoid()}>
+          {option}
+        </OptionsButton>
+      );
+    })}
   </>
-)
+);
+
+FeedbackOptions.propTypes = {
+  option: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
